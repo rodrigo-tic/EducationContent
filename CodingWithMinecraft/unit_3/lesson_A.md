@@ -1,27 +1,27 @@
 ### @explicitHints 1
 
-# Activity: Create a Compass Rose
+# Actividad 3 (Lección A): Crea una brújula
 
-## Step 1
-Create a new ``||Player: on chat||`` command. Drag a ``||Player:on chat command||`` block out and change the command to **compassrose"**.
+## Paso 1
+Crear un nuevo comando de chat ``||Player: on chat||``. Arrastra un bloque ``||Player:on chat command||`` al lienzo de programación y cambia el nombre del comando, por ejemplo, a **brujula"**.
 
 ### ~ tutorialhint
 ``` blocks
-player.onChat("compassrose", function () {
+player.onChat("brujula", function () {
 })
 
 ```
 
-## Step 2 
-Next, place a ``||Blocks:fill with||`` block inside the ``||Player:on chat command||`` block. 
-Adjust the ``||Blocks:fill with||`` block from **grass** to whatever you want the axis to be. Our example uses **gray wool** for the axis.
+## Paso 2 
+Ahora, coloca un bloque ``||Blocks:fill with||`` dentro del bloque ``||Player:on chat command||``. 
+Modifica el bloque ``||Blocks:fill with||`` para que en lugar de **hierba** tenga el material del que quieras construir tu eje X. Por ejemplo, puedes usar **lana gris** para el eje.
 
-## Step 3
-Put the values **(~-10 ~-1 ~0)** in **from** and **(~10 ~-1 ~0)** in **to**. This will print out a line of 21 blocks along the X-axis. The line will be under your feet, and you will be in the very center.
+## Paso 3
+Pon los valores de coordenadas **(~-10 ~-1 ~0)** en **from** y **(~10 ~-1 ~0)** in **to**. Esto va a dibujar una línea de 21 bloques a lo largo del eje X. La línea de bloques estará por debajo de tus pies y tú estarás situado en el centro de la línea. 
 
 ### ~ tutorialhint
 ``` blocks
-    player.onChat("compassrose", function () {
+    player.onChat("brujula", function () {
         blocks.fill(
         GRAY_WOOL,
         pos(-10, -1, 0),
@@ -30,28 +30,74 @@ Put the values **(~-10 ~-1 ~0)** in **from** and **(~10 ~-1 ~0)** in **to**. Thi
         )
 })
 ```
-## Step 4
-Print East and West directions. Find ``||Blocks:print||`` block. This block prints words with any block you choose along a specified axis.
+## Paso 4
+Imprime las direcciones Este y Oeste en los extremos del eje X. Busca el bloque ``||Blocks:print||``. Este bloque imprime palabras a lo largo del eje especificado, utilizando el material que escojas para imprimr las palabras.
 
-## Step 5
-Drag out two ``||Blocks:print||`` blocks and place them after ``||Blocks:fill with||`` block. 
-Enter "W" in the first ``||Blocks:print||`` and **"E"** in the second ``||Blocks:print||`` to indicate West and East.
+## Paso 5
+Arrastra dos bloques ``||Blocks:print||`` y colócalos a continuación del bloque ``||Blocks:fill with||``. 
+Pon la letra **"O"** en el primer  ``||Blocks:print||`` y la letra **"E"** en el segundo ``||Blocks:print||`` para indicar el Oeste y el Este.
 
-## Step 6
-Select a block to ``||Blocks:print||`` the letters in. In this example, **lime wool** is used for west and **yellow wool** for east.
+## Paso 6
+Selecciona un bloque ``||Blocks:print||`` para imprimir las letras. En este ejemplo, utilizaremos this example, **lana lima** para el Oeste y **lana amarilla** para el Este.
 
-## Step 7
-In ``||Blocks:print||`` **"W"**, enter **(~-11 ~0 ~0)** coordinates.
+## Paso 7
+En ``||Blocks:print||`` **"O"**, pon las coordenadas **(~-11 ~0 ~0)**.
 
-In ``||Blocks:print||`` **"E"**, enter **(~11 ~0 ~0)** coordiantes.
+En ``||Blocks:print||`` **"E"**, pon las coordenadas **(~11 ~0 ~0)**.
+
+### ~ tutorialhint
+``` blocks
+    player.onChat("brujula", function () {
+        blocks.fill(
+        GRAY_WOOL,
+        pos(-10, 0, 0),
+        pos(10, 0, 0),
+        FillOperation.Replace
+        )
+        blocks.print(
+        "O",
+        LIME_WOOL,
+        pos(-11, 0, 0),
+        WEST
+        )
+        blocks.print(
+        "E",
+        YELLOW_WOOL,
+        pos(11, 0, 0),
+        WEST
+        )
+})
+```
+
+## Paso 8
+Repite las acciones para el Norte y el Sur. Coloca un bloque ``||Blocks: fill with||`` dentro de ``||Player:on chat command||``.
+
+Cambia el bloque de **hierba** en el bloque ``||Blocks:fill with||`` al material que quieras construir para el eje Z (Norte / Sur). En este ejemplo utilizaremos **lana negra** para el eje.
+
+## Paso 9
+Pon las coordenadas **(~0 ~-1 ~-10)** en **from** y **(~0 ~-1 ~10)** en **to**. Esto dibujará una línea de bloques a lo largo del eje **Z**.
+
+## Paso 10
+Arrastra dos bloques ``||Blocks:print||`` al área de programación y colócalos después del bloque ``||Blocks:fill with||`` que acabábamos de colocar.
+
+## Paso 11
+Escribe **"N"** en el primer bloque ``||Blocks:print||`` y **"S"** en el segundo bloque ``||Blocks:print||`` para indicar las direcciones del Norte y del Sur.
+
+## Paso 12
+Selecciona un bloque de material para imprimir ``||Blocks:print||`` las legras N y S. En este ejemplo utilizaremos **lana azul** para el Norte y lana roja para el Sur.
+
+## Paso 13
+En ``||Blocks:print||`` **"N"**, pon las coordenadas **(~0 ~0 ~-11)**. 
+
+En ``||Blocks:print||`` **"S"**, pon las coordenadas **(~0 ~0 ~11)**.
 
 ### ~ tutorialhint
 ``` blocks
     player.onChat("compassrose", function () {
         blocks.fill(
         GRAY_WOOL,
-        pos(-10, 0, 0),
-        pos(10, 0, 0),
+        pos(-10, -1, 0),
+        pos(10, -1, 0),
         FillOperation.Replace
         )
         blocks.print(
@@ -66,69 +112,23 @@ In ``||Blocks:print||`` **"E"**, enter **(~11 ~0 ~0)** coordiantes.
         pos(11, 0, 0),
         WEST
         )
-})
-```
-
-## Step 8
-Repeat for North and South. Place a ``||Blocks: fill with||`` block into the ``||Player:on chat command||``.
-
-Adjust the ``||Blocks:fill with||`` block from **grass** to whatever you want the axis to be. This example uses **black wool** for the axis.
-
-## Step 9
-Put the values **(~0 ~-1 ~-10)** in **from** and **(~0 ~-1 ~10)** in **to**. This will print out a line of blocks along the **Z**-axis.
-
-## Step 10
-Drag out two ``||Blocks:print||`` blocks and place them after the newest ``||Blocks:fill with||`` block.
-
-## Step 11
-Enter **"N"** in the first ``||Blocks:print||`` block and **"S"** in the second ``||Blocks:print||`` block to indicate North and South.
-
-## Step 12
-Select a block to ``||Blocks:print||`` the letters in. This example uses **blue wool** for north and red wool for south.
-
-## Step 13
-In ``||Blocks:print||`` **"N"**, enter **(~0 ~0 ~-11)** coordinates. 
-
-In ``||Blocks:print||`` **"S"**, enter **(~0 ~0 ~11)** coordinates.
-
-### ~ tutorialhint
-    ``` blocks
-        player.onChat("compassrose", function () {
-            blocks.fill(
-            GRAY_WOOL,
-            pos(-10, -1, 0),
-            pos(10, -1, 0),
-            FillOperation.Replace
-            )
-            blocks.print(
-            "W",
-            LIME_WOOL,
-            pos(-11, 0, 0),
-            WEST
-            )
-            blocks.print(
-            "E",
-            YELLOW_WOOL,
-            pos(11, 0, 0),
-            WEST
-            )
-            blocks.fill(
-            GRAY_WOOL,
-            pos(0, -1, -10),
-            pos(0, -1, 10),
-            FillOperation.Replace
-            )
-            blocks.print(
-            "N",
-            BLUE_WOOL,
-            pos(0, 0, -11),
-            WEST
-            )
-            blocks.print(
-            "S",
-            RED_WOOL,
-            pos(0, 0, 11),
-            WEST
-            )
+        blocks.fill(
+        GRAY_WOOL,
+        pos(0, -1, -10),
+        pos(0, -1, 10),
+        FillOperation.Replace
+        )
+        blocks.print(
+        "N",
+        BLUE_WOOL,
+        pos(0, 0, -11),
+        WEST
+        )
+        blocks.print(
+        "S",
+        RED_WOOL,
+        pos(0, 0, 11),
+        WEST
+        )
 })
 ```
