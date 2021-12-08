@@ -1,152 +1,125 @@
- ### @explicitHints 1
- 
- # Activity: Minecraft moving company
+### @explicitHints 0
+# Actividad: Empresa de mudanzas en Minecraft
 
-## Step 1
-Drag three ``||Player:on chat command||`` blocks into the coding Workspace.
+## Paso 1
+Arrastra tres bloques ``||Player:con el comando de chat||`` al espacio de programación.
 
-Change the names of these ``||Player:on chat command||`` blocks to **"start"**, **"stop"**, and **"copy"**.
+Cambia los nombres dentro de estos bloques ``||Player:con el comando de chat||`` a **"inicio"**, **"final"** y **"clonacion"**.
 
-### ~ tutorialhint
 ```blocks
-player.onChat("start", function () { })
-player.onChat("stop", function () { })
-player.onChat("copy", function () { })
+player.onChat("inicio", function () { })
+player.onChat("final", function () { })
+player.onChat("clonacion", function () { })
 ```
 
-## Step 2
-Create the variables. Open ``||Variables:VARIABLES||`` and click the **Make a Variable** button. 
+## Paso 2
+Vamos a crear dos **variables**. Entra en ``||Variables:VARIABLES||`` y haz clic en el botón **Crear una variable**. 
 
-Name the variable **start**, and click **Ok**.
+Llama a la primera variable **posicion_inicial**, y haz clic en **Aceptar**.
 
-## Step 3
-Make another variable and name the variable **stop**, and click **Ok**.
+## Paso 3
+Crea otra variable de nombre **posicion_final**, y haz click en **Aceptar**.
 
-## Step 4
-Set the variables. Place a ``||Variables:set||``variable block into ``||Player:on chat command||`` for start. 
+## Paso 4
+Vamos a asignar valores a las variables. Coloca un bloque de  ``||Variables:establecer||`` variable dentro del bloque ``||Player:con el comando de chat||`` **"inicio"**.
 
-Use the drop-down menu and adjust this to say set ``||Variables:start||`` to **0**.
+En el desplegable del bloque ``||Variables:establecer||`` selecciona la variable ``||Variables:posicion_inicial||`` para asignarle inicialmente el valor **0**.
 
-## Step 5
-Adjust **0** to ``||Player:player world position||``. Drag ``||Player:player world position||`` into ``||Variables:set start||`` and replace the **0**.
+## Paso 5
+Arrastra ``||Player:posición del jugador en el mundo||`` dentro de ``||Variables:establecer posicion_inicial||`` para reemplazar al valor **0**.
 
-### ~ tutorialhint
 ```blocks
-let start: Position = null
-player.onChat("start", function () {
-    start = player.position()
+player.onChat("inicio", function () {
+    posicion_inicial = player.position()
 })
 ```
-## Step 6
-Print messages. Add ``||Player:say||`` block after ``||Variables:set start||``. 
+## Paso 6
+Vamos a sacar algunos mensajes por pantalla. Añade un bloque ``||Player:decir||`` a continuación de ``||Variables:establecer posicion_inicial||``. 
 
-### ~ tutorialhint
+## Paso 7
+En los bloques avanzados, entra en ``||Text:TEXTO||``, y coloca ``||Text:unir||`` dentro del bloque ``||Player:decir||``, reemplazando a **":)"**.
+
+En el primer hueco de ``||Text:join||``, escribe **"Punto de inicio: "**.
+
+## Paso 8
+A continuación, entra en ``||Variables: VARIABLES||``y arrastra la variable ``||Variables: posicion_inicial||`` al segundo hueco del bloque ``||Text:unir||``.
+
+Es importante que observes detenidamente tu código y que te des cuenta de lo que hará tu programa al ejecutar el comando de chat "inicio". Si tienes dudas, pregúntale al profesor. Puedes salir del CodeBuilder, mover tu jugador y teclear el comando de chat "inicio" para comprobar qué sucede.
+
 ```blocks
-let start: Position = null
-player.onChat("start", function () {
-    start = player.position()
-    player.say("Hi!")
+player.onChat("inicio", function () {
+    posicion_inicial = player.position()
+    player.say("Punto de inicio establecido: " + posicion_inicial)
 })
 ```
 
-## Step 7
-Open ``||Text:TEXT||``, and place ``||Text:join||`` into the ``||Blocks:say||`` block, replacing **"Hi!"**.
+## Paso 9
+Vamos a repetir para el comando de chat **"final"** lo mismo que hemos hecho para el comando "inicio". Haz clic con el botón derecho sobre el bloque ``||Player:con el comando de chat||`` **"inicio"** y escoge la opción **Duplicar**. Cambia el nombre del comando  a **"final"** en el bloque que acabas de duplicar. 
+Asegúrate que en el bloque ``||Variables: establecer||`` seleccionas la variable ``||Variables: posicion_final||``.
+Cambia también el texto del bloque ``||Player: decir||`` para que aparezcan **"Punto opuesto:"** y la variable ``||Variables: posicion_final||`` en los dos huecos del bloque ``||Text: unir||``. 
 
-In the first slot of ``||Text:join||``, enter **"Starting Point Set"**.
+## Paso 10
+Borra ("Eliminar bloque") al hacer clic con el botón derecho del ratón) sobre el **bloque vacío** ``||Player:con el comando de chat||`` **"final"**.
 
-## Step 8
-Next, open ``||vARIABLES: VARIABLES||``, and drag ``||Variables: start||`` into the second slot of the ``||Text:join||`` block.
+## Paso 11
+Vamos a programar ahora el comando **"clonacion"**. Entra en ``||Blocks:BLOQUES||``, y arrastra un bloque ``||Blocks:clonar||`` dentro del bloque ``||Player:con el comando de chat||`` **"clonacion"**.
+Date cuenta de que el bloque ``||Blocks:clonar||`` incluye **3 posiciones (coordenadas)**: "clonar **de**", "clonar **a**" y "clonar **en**" 
 
-### ~ tutorialhint
-```blocks
-let start: Position = null
-player.onChat("start", function () {
-    start = player.position()
-    player.say("Starting Point Set: " + start)
-})
-
-```
-
-## Step 9
-Repeat for the stop command. Right-click ``||Player:on chat command||`` **"start"** and duplicate it. Rename ``||Player: on chat||`` command into **stop**. 
-
-Change the ``||Player: say||`` text into **"Stopping Point Set"**. Add a ``||Variables: stop||`` variable into the ``||Text: join||`` block. 
-
-### ~ tutorialhint
 ``` blocks
-let stop: Position = null
-player.onChat("stop", function () {
-    stop = player.position()
-    player.say("Stopping Point Set: " + stop)
-})
-```
-## Step 10
-Delete the empty ``||Player:on chat command||`` blocks for **"stop"** and **"copy"**.
-
-## Step 11
-Build the copy command. Open ``||Blocks:BLOCKS||``, and drag the ``||Blocks:clone||`` block into **"copy"** block.
-
-### ~ tutorialhint
-``` blocks
-player.onChat("copy", function () {
+player.onChat("clonacion", function () {
     blocks.clone(
-    pos(0, 0, 0),
-    pos(0, 0, 0),
-    pos(0, 0, 0),
+    pos(~0, ~0, ~0),
+    pos(~0, ~0, ~0),
+    pos(~0, ~0, ~0),
     CloneMask.Replace,
     CloneMode.Normal
     )
 })
 ```
 
-## Step 12
-From ``||Variables:VARIABLES||``, drag ``||Variables:start||`` into  the first slot in ``||Block:clone||`` block. Your block should now read **clone from start**.
+## Paso 12
+Entra en ``||Variables:VARIABLES||`` y arrastra la variable ``||Variables:posicion_inicial||`` a la primera posición (**"de"**) dentro bloque ``||Blocks:clonar||``. Tu primera posición deberia aparecer ahora como **clonar de posicion_inicial**.
 
-## Step 13
-From ``||Variables:VARIABLES||``, drag ``||Variables:stop||`` into the second slot in ``||Block:clone||``. Your block should now read **clone from start to stop**.
+## Paso 13
+Entra en ``||Variables:VARIABLES||``, y arrastra la variable ``||Variables:posicion_final||`` a la segunda posición (**"a"**) dentro del bloque ``||Blocks:clonar||``. El bloque bería aparecer ahora como **clonar de posicion_inicial a posicion_final**.
 
-### ~ tutorialhint
 ```blocks
-player.onChat("copy", function () {
-    let stop: Position = null
-    let start: Position = null
+player.onChat("clonacion", function () {
     blocks.clone(
-    start,
-    stop,
-    pos(0, 0, 0),
+    posicion_inicial,
+    posicion_final,
+    pos(~0, ~0, ~0),
     CloneMask.Replace,
     CloneMode.Normal
     )
 })
 ```
 
-## Step 14
-Try your code in Minecraft. You need to build a house or a structure that you would like to copy. Move your player to one of the bottom corners of the structure, and in the chat window, type the command "start". 
+## Paso 14
+Prueba ahora tu programa en Minecraft. En primer lugar deberás construir una estructura sencilla con bloques (una casa, una torre, etc.), que a través de nuestro programa vamos a clonar en otra posición distinta a las coordenadas en las que ha sido construida originalmente. 
+Mueve tu jugador a una de las esquinas inferiores de tu estructura, abre la **ventana de chat** en Minecraft (con la letra **t**) y teclea en ella el comando "**inicio**". 
 
-## Step 15
-Move your player diagonally to the top corner from the start. In the chat window, type the command "stop".
-Move your player to an open space in the world where you want to copy the structure, and in the chat window, type the command "copy".
-Did it copy your house or structure correctly?
+## Paso 15
+Desplaza ahora tu jugador en diagonal a la esquina superior de tu estructura  (opuesta en diagonal al punto que has marcado anteriormente en el comando "inicio"). Tal vez tengas que utilizar alguna escalera para subir a ese punto opuesto en diagonal. Una vez allí, abre una ventana de chat en Minecraft y teclea el comando "**final**".
+A continuación, desplaza a tu jugador a un espacio abierto dentro del mundo, abre una ventana de chat y teclea el comando "**clonacion**". Si el programa funciona correctamente, debería de replicarse exactamente la estructura en la posición en la que se encuentre ahora el jugador. Fíjate que en el bloque verde clonar ``||Blocks: clonar||`` le estamos diciendo que clone la estructura **en** la posición **(~0, ~0, ~0)**. Recuerda que el símbolo **~** delante de las coordenadas significa que estamos trabajando con coordenadas relativas a la posición del jugador. **Posible pregunta de examen**: ¿Qué posición representan las coordenadas **(~0, ~0, ~0)**?
 
-### ~ tutorialhint
 ``` blocks
-let start: Position = null
-let stop: Position = null
-player.onChat("start", function () {
-    start = player.position()
-    player.say("Starting Point Set: " + start)
+player.onChat("inicio", function () {
+    posicion_inicial = player.position()
+    player.say("Punto de inicio: " + posicion_inicial)
 })
-player.onChat("copy", function () {
+player.onChat("final", function () {
+    posicion_final = player.position()
+    player.say("Punto opuesto: " + posicion_final)
+})
+player.onChat("clonacion", function () {
     blocks.clone(
-    start,
-    stop,
-    pos(0, 0, 0),
+    posicion_inicial,
+    posicion_final,
+    pos(~0, ~0, ~0),
     CloneMask.Replace,
     CloneMode.Normal
     )
 })
-player.onChat("stop", function () {
-    stop = player.position()
-    player.say("Stopping Point Set: " + stop)
-})
 ```
+    
