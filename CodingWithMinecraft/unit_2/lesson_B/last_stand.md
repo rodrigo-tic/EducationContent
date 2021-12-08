@@ -1,45 +1,46 @@
-### @explicitHints 1
+### @explicitHints 0
 
 # Last Stand at the Alamo 
 
-## Step 1
-Respond to a mob killed event: From the ``||Mobs:MOBS||`` Toolbox drawer, drag a ``||Mobs:on killed||`` block into the coding Workspace.
+```template
+mobs.spawn(mobs.monster(ZOMBIE), pos(0, 0, 5))
+``` 
 
-### ~ tutorialhint
+## Paso 1
+Reacciona al evento "zombie muerto": Entra en la sección ``||Mobs:CRIATURAS||`` y arrastra un bloque **gestor de eventos** ``||Mobs:en animal matado||`` al área de programación.
+
 ```blocks
 mobs.onMobKilled(CHICKEN, function () {
 })
 ```
 
-## Step 2
-See whether it was a monster: from the ``||Mobs:MOBS||`` Toolbox drawer, drag a ``||Mobs:monster||`` drop-down block out to replace the default, **animal**. Using the drop-down menu in the ``||Mobs:monster||`` block, select the **zombie** spawn egg.
+## Paso 2
+Vamos a hacer que nuestro **gestor de eventos** ``||Mobs: en animal matado||`` reaccione solamente a la muerte de **monstruos** (no de animales): Entra en ``||Mobs:CRIATURAS||`` y arrastra un bloque con un desplegable de huevos de ``||Mobs:monstruo||`` para reemplazar al huevo de ``||Mobs:animal||`` que teníamos por defecto en nuestro gestor de eventos . 
+Utiliza el menú desplegable para seleccionar un huevo de **zombie**.
 
-## Step 3
-Get set up to spawn new zombies! From the ``||Mobs:MOBS||`` Toolbox drawer, drag a ``||Mobs:spawn animal||`` block under the ``||Mobs:on killed||`` event handler block.
+## Paso 3
+¡Vamos a engendrar más zombies! Entra en ``||Mobs:CRIATURAS||`` y arrastra  un bloque  ``||Mobs:huevo de animal||`` dentro del gestor de eventos ``||Mobs:en monstruo matado||``.
 
-### ~ tutorialhint
 ```blocks
 mobs.onMobKilled(mobs.monster(ZOMBIE), function () {
 mobs.spawn(CHICKEN, pos(0, 0, 0))
 })
 ```
 
-## Step 4
-Select the zombie egg. Similar to what you did in step 2, here you need to replace the default **animal** setting with zombie in the spawn block.
+## Paso 4
+Al igual que hiciste en el paso 2, reemplaza el huevo de animal por un huevo de ``||Mobs:monstruo||`` de la sección ``||Mobs:CRIATURAS||``.
 
-### ~ tutorialhint
 ```blocks
 mobs.onMobKilled(mobs.monster(ZOMBIE), function () {
 mobs.spawn(mobs.monster(ZOMBIE), pos(0, 0, 0))
 })
 ```
 
-## Step 5
-Two zombies are better than one. You want to spawn two zombies for every one you kill, so from the ``||Loops:Loops||`` Toolbox drawer, drag a ``||Loops:repeat||`` loop onto the work area. This ``||Loops:repeat||`` loop should be inside the ``||Mobs:on killed||`` event, and your ``||Mobs:spawn||`` block should be inside the ``||Loops:repeat||`` loop.
+## Paso 5
+Dos zombies dan más miedo que uno. Vas a engendrar dos zombies por cada uno que mates, así que entra en ``||Loops:BUCLES||`` y arrastra un bucle ``||Loops:repetir||`` al área de programación. Este bucle ``||Loops:repetir||`` lo colocarás dentro del gestor de eventos ``||Mobs:en mostruo matado||`` y tu bloque ``||Mobs:huevo de monstruo||`` irá dentro del bucle ``||Loops:repetir||``.
 
-In the ``||Blocks:repeat||`` loop, enter the number **2**. 
+En el bucle ``||Loops:repetir||`` escribe el número **2**. 
 
-### ~ tutorialhint
 ```blocks
 mobs.onMobKilled(mobs.monster(ZOMBIE), function () {
     for (let index = 0; index < 2; index++) {
@@ -48,24 +49,12 @@ mobs.onMobKilled(mobs.monster(ZOMBIE), function () {
 })
 ```
 
-## Step 6
-Where to spawn the zombies? Replace the default **(~0 ~0 ~0)** with a ``||Positions:pick random position||`` block.
+## Paso 6
+Vamos a hacer que los zombies aparezcan en un lugar aleatorio: sustituye las coordenadas **(~0 ~0 ~0)** por un bloque ``||Positions:escoger posición aleatoria||``.
 
-## Step 7
-Set the random position range: in the ``||Blocks:pick random position||`` block, enter the **from** coordinates as **(~10 ~0 ~10)** and the **to** coordinates as **(~-10 ~0 ~-10)**.
+## Paso 7
+Vamos a establecer el rango de coordanadas aleatorio en el que pueden aparecer los zombies: en el bloque ``||Positions:escoger posición aleatoria||``, escribe en **de** las coordenadas **(~10 ~0 ~10)** y en **a** las coordenadas **(~-10 ~0 ~-10)**.
 
-### ~ tutorialhint
-```blocks
-mobs.onMobKilled(mobs.monster(ZOMBIE), function () {
-    for (let i = 0; i < 2; i++) {
-        mobs.spawn(mobs.monster(ZOMBIE), randpos(
-            pos(10, 0, 10),
-            pos(-10, 0, -10)
-        ))
-    }
-})
-```
 
-## Step 8
-
-Try it out in game!
+## Paso 8
+Prueba tu programa en Minecraft y comprueba que cada vez que matas un zombie aparecen otros dos en posiciones aleatorias
