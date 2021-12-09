@@ -68,9 +68,9 @@ Date cuenta de que el bloque ``||Blocks:clonar||`` incluye **3 posiciones (coord
 ``` blocks
 player.onChat("clonacion", function () {
     blocks.clone(
-    pos(~0, ~0, ~0),
-    pos(~0, ~0, ~0),
-    pos(~0, ~0, ~0),
+    pos(0, 0, 0),
+    pos(0, 0, 0),
+    pos(0, 0, 0),
     CloneMask.Replace,
     CloneMode.Normal
     )
@@ -88,7 +88,7 @@ player.onChat("clonacion", function () {
     blocks.clone(
     posicion_inicial,
     posicion_final,
-    pos(~0, ~0, ~0),
+    pos(0, 0, 0),
     CloneMask.Replace,
     CloneMode.Normal
     )
